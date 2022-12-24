@@ -22,7 +22,7 @@ Print2DArray(array);
 
 Console.WriteLine();
 
-int[,] sortedArray = SortArreyInRows(array);
+int[,] sortedArray = ArrayDescendingByRows(array);
 
 Print2DArray(sortedArray);
 
@@ -32,30 +32,30 @@ Console.WriteLine();
 
 //Сортировака массива
 
-int[,] SortArreyInRows(int[,] array)
-{
-    int[,] arr = new int[array.GetLength(0), array.GetLength(1)];
+// int[,] SortArreyInRows(int[,] array)
+// {
+//     int[,] arr = new int[array.GetLength(0), array.GetLength(1)];
 
-    for (int i = 0; i < array.GetLength(0)-1; i++)
-    {
-        for (int j = 0; i < array.GetLength(1)-1; j++)
-        {
-            for (int c = 0; j < array.GetLength(1)-1; c++)
-            {
-                if (array[i, j] < array[i, c])
-                {
-                    int tmp = array[i,j];
-                    array[i, j] = array[i, c];
-                    array[i, c] = tmp;
-                }
+//     for (int i = 0; i < array.GetLength(0)-1; i++)
+//     {
+//         for (int j = 0; i < array.GetLength(1)-1; j++)
+//         {
+//             for (int c = 0; j < array.GetLength(1)-1; c++)
+//             {
+//                 if (array[i, j] < array[i, c])
+//                 {
+//                     int tmp = array[i,j];
+//                     array[i, j] = array[i, c];
+//                     array[i, c] = tmp;
+//                 }
 
-            }
-        }
-    }
-    arr = array;
-    return arr;
+//             }
+//         }
+//     }
+//     arr = array;
+//     return arr;
 
-}
+// }
 
 
 
@@ -95,44 +95,14 @@ void Print2DArray(int[,] array)
 }
 
 
-// Метод нахождения номера строки с наименьшей суммой элементов в ней
 
-int FindRowWithLeastSumOfElements(int[,] array)
+// Метод формирования отсортированного массива
+
+int[,] ArrayDescendingByRows(int[,] array)
 {
-    int[] resultArray = new int[array.GetLength(0)];
+    int[,] resultArray = new int [array.GetLength(0), array.GetLength(1)];
 
     for (int i = 0; i < array.GetLength(0); i++)
-    {
-        int sum = 0;
-
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            sum += array[i, j];
-        }
-        resultArray[i] = sum;
-    }
-
-    int min = resultArray[0];
-
-    int index = 0;
-
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        if (min > resultArray[i])
-        {
-            min = resultArray[i];
-            index = i;
-        }
-    }
-    
-    int findRowWithLeastSumOfElements = index + 1;
-
-    return findRowWithLeastSumOfElements;
-}
-
-
-Int[] arr = new int [.   ]
-for (int i = 0; i < array.GetLength(0); i++)
     {
         int max = array[i,0];
 
@@ -140,11 +110,11 @@ for (int i = 0; i < array.GetLength(0); i++)
         {
             if(max < array[i,j])
             {
-                int tmp = array[i,j];
-                array[i, j] = array[i, c];
-                array[i, c] = tmp;
+                max = array[i,j];
+
+                resultArray[i,j] = max;
             }
-        
         }
-        resultArray[i] = sum;
     }
+    return resultArray;
+}
