@@ -26,7 +26,7 @@ Console.WriteLine();
 
 int[,,] CreateRandom3DArray(int countOfRows, int countOfColumns, int countOfPage)
 {
-Random random = new Random();
+    Random random = new Random();
 
     int[,,] array = new int[countOfRows, countOfColumns, countOfPage];
 
@@ -36,7 +36,7 @@ Random random = new Random();
         {
             for (var k = 0; k < array.GetLength(2); k++)
             {
-                array[i, j, k] = random.Next(0, 100);
+                array[i, j, k] = random.Next(10, 100);
             }
         }
     }
