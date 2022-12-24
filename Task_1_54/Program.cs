@@ -93,3 +93,58 @@ void Print2DArray(int[,] array)
         Console.WriteLine();
     }
 }
+
+
+// Метод нахождения номера строки с наименьшей суммой элементов в ней
+
+int FindRowWithLeastSumOfElements(int[,] array)
+{
+    int[] resultArray = new int[array.GetLength(0)];
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        int sum = 0;
+
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            sum += array[i, j];
+        }
+        resultArray[i] = sum;
+    }
+
+    int min = resultArray[0];
+
+    int index = 0;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        if (min > resultArray[i])
+        {
+            min = resultArray[i];
+            index = i;
+        }
+    }
+    
+    int findRowWithLeastSumOfElements = index + 1;
+
+    return findRowWithLeastSumOfElements;
+}
+
+
+Int[] arr = new int [.   ]
+for (int i = 0; i < array.GetLength(0); i++)
+    {
+        int max = array[i,0];
+
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if(max < array[i,j])
+            {
+                int tmp = array[i,j];
+                array[i, j] = array[i, c];
+                array[i, c] = tmp;
+            }
+        
+        }
+        resultArray[i] = sum;
+    }
